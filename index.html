@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<title>فرازبان | FARAZABAN — آکادمی خصوصی زبان انگلیسی</title>
+<meta name="description" content="فرازبان، آکادمی خصوصی آموزش زبان انگلیسی. آموزش برای کودکان، نوجوانان، بزرگسالان و آمادگی آیلتس با اساتید بین‌المللی.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   FARAZABAN — Private Academy Edition
+   ---------------------------------------------------------
+   Tokens
+   Color   : --ink #0c1018 (near-black navy), --navy #10192b,
+             --navy-2 #17233b, --ivory #f4efe4, --ivory-dim #e7ddc8,
+             --gold #c8a35e, --gold-light #e6cf9c, --emerald #29483c
+   Type    : Markazi Text (display serif, restrained) +
+             Vazirmatn (body / UI / data)
+   Layout  : mobile-first editorial column, asymmetric desktop grid
+   Signature: the brand "seal" — a thin gold ring emblem used as
+              logo mark, section divider and certificate motif,
+              plus a slow cinematic hero image reveal
+   ========================================================= */
+
+:root{
+  --ink:#0a0d15;
+  --navy:#101828;
+  --navy-2:#182238;
+  --navy-3:#202c46;
+  --ivory:#f4efe3;
+  --ivory-dim:#e6dcc4;
+  --ivory-mute:#c9bd9e;
+  --gold:#c8a35e;
+  --gold-light:#e7cf98;
+  --gold-deep:#9c7c3f;
+  --emerald:#2b4a3c;
+  --line:rgba(244,239,227,.12);
+  --line-strong:rgba(200,163,94,.35);
+  --shadow:0 30px 70px -30px rgba(0,0,0,.65);
+  --ease:cubic-bezier(.19,1,.22,1);
+  --container:1180px;
+  --radius:2px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:'Vazirmatn',sans-serif;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3,h4,p{margin:0;}
+.serif{font-family:'Markazi Text',serif;}
+.container{max-width:var(--container);margin:0 auto;padding:0 20px;}
+::selection{background:var(--gold);color:var(--ink);}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px;}
+
+/* ============ utility ============ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Vazirmatn',sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.22em;color:var(--gold-light);text-transform:uppercase;
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold);}
+.eyebrow.center{justify-content:center;}
+.eyebrow.center::before{display:none;}
+.eyebrow.center::after{content:'';width:26px;height:1px;background:var(--gold);order:2;}
+
+.section-head{max-width:600px;margin:0 0 42px;}
+.section-head.center{margin-inline:auto;text-align:center;}
+.section-head h2{font-family:'Markazi Text',serif;font-weight:700;font-size:clamp(30px,7vw,46px);line-height:1.28;margin-top:14px;}
+.section-head p{margin-top:16px;color:var(--ivory-mute);font-size:15px;line-height:2;}
+
+.section{padding:78px 0;}
+.section.on-navy{background:var(--navy);}
+.hairline{height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent);}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:14px;font-weight:600;padding:16px 28px;border:1px solid transparent;
+  letter-spacing:.02em;transition:transform .5s var(--ease),background .4s,border-color .4s,color .4s;
+  border-radius:var(--radius);
+}
+.btn-gold{background:var(--gold);color:var(--ink);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-line{border-color:rgba(244,239,227,.35);color:var(--ivory);}
+.btn-line:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-block{width:100%;}
+.btn-sm{padding:12px 20px;font-size:13px;}
+
+.seal{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;position:relative;flex:0 0 auto;
+}
+.seal::before{content:'';position:absolute;inset:4px;border:1px solid rgba(200,163,94,.4);border-radius:50%;}
+.seal span{font-family:'Markazi Text',serif;font-weight:700;font-size:17px;color:var(--gold-light);}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+.reveal-img{opacity:0;transform:scale(1.08);transition:opacity 1.2s var(--ease),transform 1.4s var(--ease);}
+.reveal-img.in-view{opacity:1;transform:scale(1);}
+.stagger>*{transition-delay:calc(var(--i,0)*110ms);}
+
+/* ============ header (mobile first) ============ */
+.site-header{
+  position:fixed;inset-inline:0;top:0;z-index:900;
+  padding:14px 0;transition:padding .4s var(--ease),background .4s var(--ease),border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{background:rgba(10,13,21,.92);backdrop-filter:blur(14px);border-color:var(--line);padding:10px 0;}
+.header-row{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-text b{font-family:'Markazi Text',serif;font-size:19px;font-weight:700;}
+.brand-text span{font-size:9px;letter-spacing:.28em;color:var(--gold-light);margin-top:3px;}
+
+.nav-desktop,.header-cta{display:none;}
+
+.hamburger{
+  width:42px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  border:1px solid var(--line-strong);border-radius:50%;
+}
+.hamburger span{width:16px;height:1px;background:var(--ivory);transition:transform .3s var(--ease),opacity .3s;}
+
+/* full-screen mobile nav */
+.mobile-nav{
+  position:fixed;inset:0;z-index:1000;background:var(--ink);
+  display:flex;flex-direction:column;padding:20px 22px 30px;
+  transform:translateY(-100%);transition:transform .6s var(--ease);
+}
+.mobile-nav.open{transform:translateY(0);}
+.mobile-nav-top{display:flex;align-items:center;justify-content:space-between;}
+.mobile-nav-close{width:42px;height:42px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.mobile-nav nav{display:flex;flex-direction:column;margin-top:46px;gap:2px;}
+.mobile-nav nav a{
+  font-family:'Markazi Text',serif;font-size:30px;font-weight:600;padding:15px 2px;
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease);
+}
+.mobile-nav nav a small{font-family:'Vazirmatn',sans-serif;font-size:11px;color:var(--ivory-mute);letter-spacing:.1em;}
+.mobile-nav.open nav a{opacity:1;transform:translateY(0);}
+.mobile-nav.open nav a:nth-child(1){transition-delay:.1s;}
+.mobile-nav.open nav a:nth-child(2){transition-delay:.16s;}
+.mobile-nav.open nav a:nth-child(3){transition-delay:.22s;}
+.mobile-nav.open nav a:nth-child(4){transition-delay:.28s;}
+.mobile-nav.open nav a:nth-child(5){transition-delay:.34s;}
+.mobile-nav.open nav a:nth-child(6){transition-delay:.4s;}
+.mobile-nav-foot{margin-top:auto;display:flex;flex-direction:column;gap:12px;}
+.mobile-nav-foot p{color:var(--ivory-mute);font-size:12.5px;text-align:center;letter-spacing:.04em;}
+body.menu-open{overflow:hidden;}
+
+/* sticky mobile CTA bar */
+.mobile-cta-bar{
+  position:fixed;bottom:0;inset-inline:0;z-index:850;
+  display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(10,13,21,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  transform:translateY(0);transition:transform .4s var(--ease);
+}
+.mobile-cta-bar.hide{transform:translateY(110%);}
+.mobile-cta-bar .btn{flex:1;padding:14px 10px;font-size:13px;}
+
+/* ============ hero ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding-top:110px;}
+.hero-media{position:absolute;inset:0;z-index:0;}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.hero-media::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(10,13,21,.35) 0%, rgba(10,13,21,.55) 55%, var(--ink) 96%),
+    linear-gradient(90deg, rgba(10,13,21,.55), transparent 55%);
+}
+.hero-inner{position:relative;z-index:2;padding-bottom:54px;}
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.hero-kicker .rule{width:34px;height:1px;background:var(--gold);}
+.hero-kicker span{font-size:11px;letter-spacing:.26em;color:var(--gold-light);text-transform:uppercase;}
+.hero h1{font-family:'Markazi Text',serif;font-weight:700;font-size:clamp(38px,10vw,74px);line-height:1.18;letter-spacing:-.01em;}
+.hero h1 em{font-style:normal;color:var(--gold-light);}
+.hero p.lead{margin-top:22px;max-width:480px;color:var(--ivory-dim);font-size:15.5px;line-height:2;}
+.hero-actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;}
+.hero-meta{display:flex;gap:26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);}
+.hero-meta div b{display:block;font-family:'Markazi Text',serif;font-size:26px;color:var(--gold-light);}
+.hero-meta div span{font-size:11px;color:var(--ivory-mute);letter-spacing:.03em;}
+.hero-scroll{position:absolute;bottom:16px;inset-inline-start:20px;z-index:2;display:flex;align-items:center;gap:10px;color:var(--ivory-mute);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;}
+.hero-scroll .line{width:1px;height:34px;background:linear-gradient(180deg,var(--gold),transparent);position:relative;overflow:hidden;}
+.hero-scroll .line::after{content:'';position:absolute;top:-100%;inset-inline:0;height:100%;background:var(--gold-light);animation:scrollLine 2.2s ease-in-out infinite;}
+@keyframes scrollLine{0%{top:-100%;}60%{top:100%;}100%{top:100%;}}
+
+/* ============ intro / story ============ */
+.story{display:flex;flex-direction:column;gap:36px;}
+.story-media{position:relative;}
+.story-media .frame{position:relative;border:1px solid var(--line-strong);padding:14px;}
+.story-media img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.story-media .cap{position:absolute;bottom:-16px;inset-inline-start:26px;background:var(--ink);border:1px solid var(--line-strong);padding:10px 18px;display:flex;align-items:center;gap:10px;}
+.story-media .cap b{font-family:'Markazi Text',serif;font-size:20px;color:var(--gold-light);}
+.story-media .cap span{font-size:10.5px;color:var(--ivory-mute);display:block;}
+.story-copy p.body-text{color:var(--ivory-dim);font-size:15px;line-height:2.05;margin-top:18px;}
+.story-list{margin-top:30px;display:flex;flex-direction:column;gap:0;}
+.story-list li{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line);}
+.story-list li:last-child{border-bottom:1px solid var(--line);}
+.story-list .num{font-family:'Markazi Text',serif;font-size:22px;color:var(--gold);flex:0 0 34px;}
+.story-list div b{display:block;font-size:15px;font-weight:600;margin-bottom:6px;}
+.story-list div span{font-size:13.5px;color:var(--ivory-mute);line-height:1.9;}
+
+/* ============ courses ============ */
+.course-list{display:flex;flex-direction:column;}
+.course-row{
+  display:flex;flex-direction:column;gap:18px;padding:28px 0;border-top:1px solid var(--line);
+  transition:padding .4s var(--ease);
+}
+.course-list .course-row:last-child{border-bottom:1px solid var(--line);}
+.course-row-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.course-index{font-family:'Markazi Text',serif;font-size:15px;color:var(--gold);letter-spacing:.05em;}
+.course-row h3{font-family:'Markazi Text',serif;font-size:clamp(24px,6vw,32px);font-weight:600;margin-top:6px;}
+.course-row .age{font-size:11px;color:var(--ivory-mute);letter-spacing:.08em;border:1px solid var(--line-strong);padding:6px 12px;white-space:nowrap;}
+.course-row p{color:var(--ivory-mute);font-size:14px;line-height:1.95;max-width:520px;}
+.course-media-strip{aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);}
+.course-media-strip img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.course-row:hover .course-media-strip img{transform:scale(1.05);}
+.course-row-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.course-row-foot .meta{display:flex;gap:18px;font-size:12px;color:var(--ivory-mute);}
+.course-row-foot a.link{font-size:13px;font-weight:600;color:var(--gold-light);display:flex;align-items:center;gap:8px;}
+.course-row-foot a.link .arrow{transition:transform .35s var(--ease);}
+.course-row-foot a.link:hover .arrow{transform:translateX(-4px);}
+
+/* ============ dashboard ============ */
+.dash-card{border:1px solid var(--line-strong);background:linear-gradient(160deg,var(--navy-2),var(--navy));padding:26px 22px;position:relative;}
+.dash-top{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.dash-id{display:flex;align-items:center;gap:12px;}
+.dash-id img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);}
+.dash-id b{display:block;font-size:14px;font-weight:600;}
+.dash-id span{font-size:11.5px;color:var(--ivory-mute);}
+.dash-level{border:1px solid var(--line-strong);padding:6px 14px;font-size:11px;color:var(--gold-light);letter-spacing:.06em;}
+.dash-ring-wrap{display:flex;justify-content:center;margin:28px 0 8px;}
+.orbit{position:relative;width:168px;height:168px;}
+.orbit svg{width:100%;height:100%;transform:rotate(-90deg);}
+.orbit .bg-ring{fill:none;stroke:rgba(244,239,227,.1);stroke-width:1.5;}
+.orbit .fg-ring{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:502;stroke-dashoffset:502;transition:stroke-dashoffset 1.7s var(--ease);}
+.orbit .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.orbit .center b{font-family:'Markazi Text',serif;font-size:34px;font-weight:700;color:var(--gold-light);}
+.orbit .center span{font-size:10.5px;color:var(--ivory-mute);letter-spacing:.06em;margin-top:2px;}
+.dash-rows{margin-top:22px;display:flex;flex-direction:column;gap:16px;}
+.dash-row .top{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:8px;}
+.dash-row .top span:first-child{color:var(--ivory-dim);}
+.dash-row .top span:last-child{color:var(--gold-light);font-weight:600;}
+.dash-track{height:2px;background:rgba(244,239,227,.12);position:relative;}
+.dash-fill{position:absolute;top:0;right:0;height:100%;background:var(--gold);width:0;transition:width 1.3s var(--ease);}
+html[dir="rtl"] .dash-fill{right:0;left:auto;}
+.dash-card.in-view .dash-fill{width:var(--w);}
+.dash-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px;}
+.dash-stat{border-top:1px solid var(--line);padding-top:14px;}
+.dash-stat b{font-family:'Markazi Text',serif;font-size:26px;color:var(--gold-light);display:block;}
+.dash-stat span{font-size:11px;color:var(--ivory-mute);}
+
+/* ============ teachers ============ */
+.teacher-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:6px;margin:0 -20px;padding-inline:20px;scrollbar-width:none;}
+.teacher-scroll::-webkit-scrollbar{display:none;}
+.teacher-card{flex:0 0 78%;max-width:300px;border:1px solid var(--line);scroll-snap-align:start;}
+.teacher-scroll{scroll-snap-type:x mandatory;}
+.teacher-photo{aspect-ratio:3/4;overflow:hidden;filter:grayscale(.35);}
+.teacher-photo img{width:100%;height:100%;object-fit:cover;transition:filter .5s;}
+.teacher-card:hover .teacher-photo{filter:grayscale(0);}
+.teacher-info{padding:18px;}
+.teacher-info b{font-family:'Markazi Text',serif;font-size:21px;font-weight:600;display:block;}
+.teacher-info .role{font-size:12px;color:var(--gold-light);margin-top:4px;letter-spacing:.03em;}
+.teacher-info .exp{font-size:12.5px;color:var(--ivory-mute);margin-top:10px;line-height:1.85;padding-top:10px;border-top:1px solid var(--line);}
+
+/* ============ testimonials ============ */
+.testi-slider{position:relative;}
+.testi-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;margin:0 -20px;scrollbar-width:none;}
+.testi-track::-webkit-scrollbar{display:none;}
+.testi-slide{flex:0 0 100%;scroll-snap-align:start;padding:0 20px;}
+.testi-quote-mark{font-family:'Markazi Text',serif;font-size:64px;color:var(--gold);line-height:1;opacity:.7;}
+.testi-slide p.quote{font-family:'Markazi Text',serif;font-size:22px;line-height:1.7;color:var(--ivory);margin-top:6px;}
+.testi-person{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line);}
+.testi-person img{width:42px;height:42px;border-radius:50%;object-fit:cover;}
+.testi-person b{font-size:13.5px;display:block;}
+.testi-person span{font-size:11.5px;color:var(--ivory-mute);}
+.testi-dots{display:flex;gap:8px;justify-content:center;margin-top:28px;}
+.testi-dots span{width:6px;height:6px;border-radius:50%;background:rgba(244,239,227,.25);transition:background .3s,width .3s;}
+.testi-dots span.active{background:var(--gold);width:20px;border-radius:4px;}
+
+/* ============ success / certificates ============ */
+.cert-list{display:flex;flex-direction:column;gap:16px;}
+.cert-item{display:flex;gap:16px;align-items:center;border:1px solid var(--line);padding:16px;}
+.cert-item .thumb{flex:0 0 84px;width:84px;height:84px;overflow:hidden;border:1px solid var(--line-strong);}
+.cert-item .thumb img{width:100%;height:100%;object-fit:cover;}
+.cert-item .txt b{font-size:14.5px;font-weight:600;display:block;}
+.cert-item .txt span{font-size:12.5px;color:var(--ivory-mute);line-height:1.8;display:block;margin-top:4px;}
+.cert-item .badge{margin-inline-start:auto;flex:0 0 auto;font-size:11px;color:var(--gold-light);border:1px solid var(--line-strong);padding:5px 10px;white-space:nowrap;}
+
+/* ============ instagram ============ */
+.insta-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:14px;}
+.insta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+.insta-item{position:relative;aspect-ratio:1/1;overflow:hidden;}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease),filter .5s;filter:grayscale(.3);}
+.insta-item:hover img{transform:scale(1.08);filter:grayscale(0);}
+.insta-item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,13,21,.55),transparent 45%);}
+
+/* ============ register ============ */
+.register-panel{border:1px solid var(--line-strong);padding:34px 22px;position:relative;background:linear-gradient(170deg,var(--navy-2),var(--ink));}
+.register-panel .seal{margin-bottom:22px;}
+.register-panel h2{font-family:'Markazi Text',serif;font-size:clamp(26px,7vw,36px);font-weight:700;line-height:1.3;}
+.register-panel p.sub{color:var(--ivory-mute);font-size:14.5px;margin-top:14px;line-height:1.95;}
+.field{margin-top:18px;}
+.field label{display:block;font-size:12px;color:var(--ivory-mute);margin-bottom:8px;letter-spacing:.03em;}
+.field input,.field select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-strong);
+  padding:12px 2px;color:var(--ivory);font-family:inherit;font-size:15px;border-radius:0;
+  transition:border-color .3s;
+}
+.field input::placeholder{color:rgba(244,239,227,.35);}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold);}
+.field select option{background:var(--navy);color:var(--ivory);}
+.register-panel .btn{margin-top:26px;}
+.form-note{font-size:11.5px;color:var(--ivory-mute);margin-top:14px;text-align:center;}
+.form-success{display:none;text-align:center;padding:20px 0;}
+.form-success.show{display:block;}
+.form-success .seal{margin:0 auto 18px;}
+.form-success h3{font-family:'Markazi Text',serif;font-size:22px;margin-bottom:8px;}
+.form-success p{font-size:13.5px;color:var(--ivory-mute);}
+
+/* ============ footer ============ */
+.site-footer{background:var(--ink);border-top:1px solid var(--line);padding:56px 0 calc(24px + 70px);}
+.footer-top{display:flex;flex-direction:column;gap:36px;}
+.footer-brand p{color:var(--ivory-mute);font-size:13px;line-height:2;margin-top:16px;max-width:320px;}
+.footer-social{display:flex;gap:10px;margin-top:20px;}
+.footer-social a{width:38px;height:38px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .3s,color .3s;}
+.footer-social a:hover{background:var(--gold);color:var(--ink);}
+.footer-cols{display:flex;flex-direction:column;gap:30px;}
+.footer-col h4{font-family:'Markazi Text',serif;font-size:17px;font-weight:600;margin-bottom:16px;}
+.footer-col ul{display:flex;flex-direction:column;gap:11px;}
+.footer-col a,.footer-col li{font-size:13px;color:var(--ivory-mute);}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-bottom{border-top:1px solid var(--line);margin-top:44px;padding-top:22px;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;}
+.footer-bottom p{font-size:11.5px;color:var(--ivory-mute);}
+.to-top{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s;}
+.to-top:hover{background:var(--gold);color:var(--ink);}
+
+.toast{
+  position:fixed;bottom:96px;inset-inline-start:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--navy-2);border:1px solid var(--gold);padding:13px 22px;font-size:13px;
+  color:var(--ivory);opacity:0;pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease);z-index:1200;
+}
+html[dir="rtl"] .toast{transform:translateX(50%) translateY(20px);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+html[dir="rtl"] .toast.show{transform:translateX(50%) translateY(0);}
+
+img[data-src]{background:linear-gradient(100deg,rgba(244,239,227,.04),rgba(244,239,227,.09),rgba(244,239,227,.04));background-size:200% 100%;animation:shimmer 1.7s infinite;}
+img.loaded{animation:none;background:none;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* =========================================================
+   TABLET  (min-width 700px)
+   ========================================================= */
+@media (min-width:700px){
+  .container{padding:0 36px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .story{flex-direction:row-reverse;}
+  .story-media{flex:0 0 42%;}
+  .story-copy{flex:1;}
+  .insta-grid{grid-template-columns:repeat(4,1fr);}
+  .teacher-card{flex:0 0 46%;}
+  .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .cert-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+}
+
+/* =========================================================
+   DESKTOP  (min-width 1000px)
+   ========================================================= */
+@media (min-width:1000px){
+  .section{padding:130px 0;}
+  .site-header{padding:22px 0;}
+  .site-header.scrolled{padding:14px 0;}
+  .header-row{padding:6px 8px;}
+  .nav-desktop{display:flex;align-items:center;gap:2px;}
+  .nav-desktop a{font-size:13.5px;font-weight:500;padding:10px 16px;color:var(--ivory-dim);position:relative;transition:color .3s;}
+  .nav-desktop a::after{content:'';position:absolute;bottom:4px;inset-inline:16px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .35s var(--ease);transform-origin:right;}
+  .nav-desktop a:hover,.nav-desktop a.active{color:var(--ivory);}
+  .nav-desktop a:hover::after,.nav-desktop a.active::after{transform:scaleX(1);}
+  .header-cta{display:flex;align-items:center;gap:14px;}
+  .header-cta .btn{padding:12px 24px;font-size:13px;}
+  .hamburger,.mobile-cta-bar{display:none;}
+  .site-footer{padding-bottom:70px;}
+
+  .hero{min-height:100vh;}
+  .hero-inner{padding-bottom:80px;max-width:640px;}
+  .hero-actions{flex-direction:row;}
+  .hero-actions .btn{width:auto;}
+  .hero-meta{gap:44px;}
+
+  .story{gap:70px;}
+  .story-list li{padding:24px 0;}
+
+  .course-row{flex-direction:row;align-items:center;padding:40px 0;}
+  .course-row-top{flex-direction:column;align-items:flex-start;flex:0 0 34%;gap:0;}
+  .course-media-strip{flex:0 0 30%;aspect-ratio:4/3;}
+  .course-row-bottom{flex:1;}
+  .course-row p{margin-top:14px;}
+  .course-row-foot{margin-top:20px;}
+
+  .teacher-scroll{overflow:visible;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:0;padding:0;}
+  .teacher-card{flex:none;max-width:none;}
+
+  .testi-track{overflow:visible;flex-wrap:nowrap;display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin:0;}
+  .testi-slide{padding:0;}
+  .testi-dots{display:none;}
+
+  .insta-grid{grid-template-columns:repeat(6,1fr);}
+
+  .register-panel{padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .register-copy .mini-stats{display:flex;gap:34px;margin-top:30px;}
+  .register-copy .mini-stats div b{font-family:'Markazi Text',serif;font-size:28px;color:var(--gold-light);display:block;}
+  .register-copy .mini-stats div span{font-size:11.5px;color:var(--ivory-mute);}
+
+  .footer-top{flex-direction:row;justify-content:space-between;gap:60px;}
+  .footer-cols{flex-direction:row;gap:70px;}
+  .footer-bottom{flex-direction:row;justify-content:space-between;}
+}
+
+@media (min-width:1240px){
+  .hero h1{font-size:80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-row">
+      <a href="#home" class="brand">
+        <span class="seal"><span>ف</span></span>
+        <span class="brand-text"><b>فرازبان</b><span>FARAZABAN &nbsp;·&nbsp; EST. 1398</span></span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="ناوبری اصلی">
+        <a href="#home" class="active">خانه</a>
+        <a href="#about">معرفی آکادمی</a>
+        <a href="#courses">دوره‌ها</a>
+        <a href="#dashboard">پیشرفت</a>
+        <a href="#teachers">اساتید</a>
+        <a href="#contact">تماس</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#register" class="btn btn-line btn-sm">مشاوره رایگان</a>
+        <a href="#register" class="btn btn-gold btn-sm">ثبت‌نام</a>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile fullscreen nav -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <a href="#home" class="brand">
+      <span class="seal"><span>ف</span></span>
+      <span class="brand-text"><b>فرازبان</b><span>FARAZABAN</span></span>
+    </a>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="بستن منو">✕</button>
+  </div>
+  <nav>
+    <a href="#home" class="mobile-link">خانه <small>01</small></a>
+    <a href="#about" class="mobile-link">معرفی آکادمی <small>02</small></a>
+    <a href="#courses" class="mobile-link">دوره‌ها <small>03</small></a>
+    <a href="#dashboard" class="mobile-link">پیشرفت <small>04</small></a>
+    <a href="#teachers" class="mobile-link">اساتید <small>05</small></a>
+    <a href="#contact" class="mobile-link">تماس <small>06</small></a>
+  </nav>
+  <div class="mobile-nav-foot">
+    <a href="#register" class="btn btn-gold btn-block mobile-link">ثبت‌نام در دوره</a>
+    <p>info@farazaban.com &nbsp;—&nbsp; ۰۲۱-۹۱۰۰۰۰۰۰</p>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-media">
+    <img class="reveal-img" data-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1400&auto=format&fit=crop" alt="فضای آموزشی خصوصی فرازبان" loading="lazy">
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-kicker reveal in-view"><span class="rule"></span><span>آکادمی خصوصی زبان انگلیسی</span></div>
+    <h1 class="reveal in-view">یادگیری یک زبان جدید،<br>شروع <em>یک زندگی جدید</em></h1>
+    <p class="lead reveal in-view">فرازبان با متدی دقیق، اساتید بین‌المللی و کلاس‌های کم‌جمعیت، تجربه‌ای متفاوت از آموزش زبان انگلیسی را برای شما رقم می‌زند.</p>
+    <div class="hero-actions reveal in-view">
+      <a href="#register" class="btn btn-gold btn-block">رزرو مشاوره خصوصی</a>
+      <a href="#courses" class="btn btn-line btn-block">مشاهده دوره‌ها</a>
+    </div>
+    <div class="hero-meta reveal in-view">
+      <div><b>۱۲+</b><span>سال تجربه آموزشی</span></div>
+      <div><b>۴۸</b><span>استاد بین‌المللی</span></div>
+      <div><b>۹۷٪</b><span>رضایت زبان‌آموزان</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span class="line"></span><span>اسکرول</span></div>
+</section>
+
+<!-- ===================== STORY / ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="story">
+      <div class="story-media reveal">
+        <div class="frame">
+          <img data-src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop" alt="کلاس خصوصی فرازبان" loading="lazy">
+        </div>
+        <div class="cap"><b>۸۲٪</b><span>پیشرفت میانگین ترم</span></div>
+      </div>
+      <div class="story-copy">
+        <div class="section-head reveal">
+          <span class="eyebrow">معرفی آکادمی</span>
+          <h2>چرا فرازبان انتخابی متفاوت است</h2>
+        </div>
+        <p class="body-text reveal">فرازبان یک آموزشگاه معمولی نیست؛ آکادمی‌ای‌ست که با نگاهی خصوصی و شخصی‌سازی‌شده، مسیر یادگیری هر زبان‌آموز را طراحی می‌کند. کلاس‌های کم‌جمعیت، پیگیری فردی و اساتید دارای مدارک بین‌المللی، تفاوت اصلی ما هستند.</p>
+        <ul class="story-list reveal stagger">
+          <li style="--i:0"><span class="num">01</span><div><b>متد اختصاصی فرازبان</b><span>برنامه آموزشی بر اساس سطح، هدف و سبک یادگیری هر فرد طراحی می‌شود.</span></div></li>
+          <li style="--i:1"><span class="num">02</span><div><b>کلاس‌های کم‌جمعیت</b><span>حداکثر ۸ نفر در هر کلاس، برای توجه واقعی به هر زبان‌آموز.</span></div></li>
+          <li style="--i:2"><span class="num">03</span><div><b>گزارش پیشرفت شفاف</b><span>در پایان هر ترم، کارنامه‌ای دقیق از مسیر پیشرفت دریافت می‌کنید.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ===================== COURSES ===================== -->
+<section class="section on-navy" id="courses">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">دوره‌های آموزشی</span>
+      <h2>برنامه‌ای متناسب با هر سن و هدف</h2>
+      <p>از کودکی تا سطوح حرفه‌ای، هر دوره با محتوایی اختصاصی طراحی شده است.</p>
+    </div>
+
+    <div class="course-list">
+      <div class="course-row reveal">
+        <div class="course-row-top">
+          <span class="course-index">۰۱ — کودکان</span>
+          <h3>انگلیسی کودکان</h3>
+          <span class="age">۵ تا ۱۰ سال</span>
+        </div>
+        <div class="course-row-bottom">
+          <div class="course-media-strip">
+            <img data-src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="کلاس کودکان فرازبان" loading="lazy">
+          </div>
+          <p>آموزش بنیادین زبان از طریق قصه‌گویی و فعالیت‌های خلاقانه، همراه با ایجاد علاقه پایدار به یادگیری.</p>
+          <div class="course-row-foot">
+            <div class="meta"><span>۹۰ دقیقه</span><span>حداکثر ۸ نفر</span></div>
+            <a href="#register" class="link">رزرو جلسه آزمایشی <span class="arrow">←</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-row reveal">
+        <div class="course-row-top">
+          <span class="course-index">۰۲ — نوجوانان</span>
+          <h3>انگلیسی نوجوانان</h3>
+          <span class="age">۱۱ تا ۱۷ سال</span>
+        </div>
+        <div class="course-row-bottom">
+          <div class="course-media-strip">
+            <img data-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="کلاس نوجوانان فرازبان" loading="lazy">
+          </div>
+          <p>تقویت هر چهار مهارت زبانی همراه با آماده‌سازی تدریجی برای آزمون‌های بین‌المللی.</p>
+          <div class="course-row-foot">
+            <div class="meta"><span>۱۲۰ دقیقه</span><span>حداکثر ۱۰ نفر</span></div>
+            <a href="#register" class="link">رزرو جلسه آزمایشی <span class="arrow">←</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-row reveal">
+        <div class="course-row-top">
+          <span class="course-index">۰۳ — بزرگسالان</span>
+          <h3>انگلیسی بزرگسالان</h3>
+          <span class="age">۱۸ سال به بالا</span>
+        </div>
+        <div class="course-row-bottom">
+          <div class="course-media-strip">
+            <img data-src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="کلاس بزرگسالان فرازبان" loading="lazy">
+          </div>
+          <p>مکالمه‌محور و کاربردی؛ مناسب مهاجرت، تجارت بین‌المللی و ارتقای موقعیت شغلی.</p>
+          <div class="course-row-foot">
+            <div class="meta"><span>۱۲۰ دقیقه</span><span>حداکثر ۱۲ نفر</span></div>
+            <a href="#register" class="link">رزرو جلسه آزمایشی <span class="arrow">←</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-row reveal">
+        <div class="course-row-top">
+          <span class="course-index">۰۴ — آزمون</span>
+          <h3>آمادگی آیلتس</h3>
+          <span class="age">تافل / آیلتس</span>
+        </div>
+        <div class="course-row-bottom">
+          <div class="course-media-strip">
+            <img data-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="کلاس آمادگی آیلتس فرازبان" loading="lazy">
+          </div>
+          <p>استراتژی‌های تخصصی برای هر بخش آزمون، با آزمون‌های شبیه‌سازی‌شده منظم.</p>
+          <div class="course-row-foot">
+            <div class="meta"><span>۱۵۰ دقیقه</span><span>حداکثر ۸ نفر</span></div>
+            <a href="#register" class="link">رزرو جلسه آزمایشی <span class="arrow">←</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DASHBOARD ===================== -->
+<section class="section" id="dashboard">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">داشبورد یادگیری</span>
+      <h2>پیشرفت شما، شفاف و قابل اندازه‌گیری</h2>
+      <p>هر زبان‌آموز فرازبان به گزارش اختصاصی پیشرفت خود دسترسی دارد.</p>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-card reveal">
+        <div class="dash-top">
+          <div class="dash-id">
+            <img data-src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="پروفایل زبان‌آموز" loading="lazy">
+            <div><b>سارا محمدی</b><span>دوره بزرگسالان — ترم ۳</span></div>
+          </div>
+          <span class="dash-level">سطح B2</span>
+        </div>
+        <div class="dash-ring-wrap">
+          <div class="orbit">
+            <svg viewBox="0 0 168 168">
+              <circle class="bg-ring" cx="84" cy="84" r="80"/>
+              <circle class="fg-ring" cx="84" cy="84" r="80" data-progress="82"/>
+            </svg>
+            <div class="center"><b>۸۲٪</b><span>پیشرفت کلی</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card reveal">
+        <div class="dash-top"><div><b style="font-size:14.5px;font-weight:600;">کارنامه پیشرفت مهارت‌ها</b></div><span class="dash-level">ترم ۳</span></div>
+        <div class="dash-rows">
+          <div class="dash-row"><div class="top"><span>مکالمه</span><span>۸۸٪</span></div><div class="dash-track"><div class="dash-fill" style="--w:88%"></div></div></div>
+          <div class="dash-row"><div class="top"><span>شنیداری</span><span>۷۶٪</span></div><div class="dash-track"><div class="dash-fill" style="--w:76%"></div></div></div>
+          <div class="dash-row"><div class="top"><span>خواندن</span><span>۹۲٪</span></div><div class="dash-track"><div class="dash-fill" style="--w:92%"></div></div></div>
+          <div class="dash-row"><div class="top"><span>نوشتاری</span><span>۶۸٪</span></div><div class="dash-track"><div class="dash-fill" style="--w:68%"></div></div></div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><b data-count="24">۰</b><span>جلسه برگزار شده</span></div>
+          <div class="dash-stat"><b data-count="14">۰</b><span>واژه جدید هفتگی</span></div>
+          <div class="dash-stat"><b data-count="5">۰</b><span>آزمون موفق</span></div>
+          <div class="dash-stat"><b data-count="86">۰</b><span>امتیاز مکالمه</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ===================== TEACHERS ===================== -->
+<section class="section on-navy" id="teachers">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">اساتید</span>
+      <h2>اساتید بین‌المللی، مجرب و متعهد</h2>
+      <p>تیمی از بهترین مدرسان با سال‌ها تجربه تدریس در سطوح مختلف.</p>
+    </div>
+    <div class="teacher-scroll reveal stagger">
+      <div class="teacher-card" style="--i:0">
+        <div class="teacher-photo"><img data-src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="استاد نیلوفر احمدی" loading="lazy"></div>
+        <div class="teacher-info"><b>نیلوفر احمدی</b><span class="role">مدرس دوره کودکان</span><span class="exp">۹ سال سابقه — مدرک TESOL</span></div>
+      </div>
+      <div class="teacher-card" style="--i:1">
+        <div class="teacher-photo"><img data-src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="استاد آرش کریمی" loading="lazy"></div>
+        <div class="teacher-info"><b>آرش کریمی</b><span class="role">مدرس دوره بزرگسالان</span><span class="exp">۱۲ سال سابقه — مدرک CELTA</span></div>
+      </div>
+      <div class="teacher-card" style="--i:2">
+        <div class="teacher-photo"><img data-src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop" alt="استاد سینا رضایی" loading="lazy"></div>
+        <div class="teacher-info"><b>سینا رضایی</b><span class="role">مدرس آمادگی آیلتس</span><span class="exp">۷ سال سابقه — نمره آیلتس ۸.۵</span></div>
+      </div>
+      <div class="teacher-card" style="--i:3">
+        <div class="teacher-photo"><img data-src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=400&auto=format&fit=crop" alt="استاد الهام یوسفی" loading="lazy"></div>
+        <div class="teacher-info"><b>الهام یوسفی</b><span class="role">مدرس دوره نوجوانان</span><span class="exp">۸ سال سابقه — مدرک DELTA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">نظرات زبان‌آموزان</span>
+      <h2>تجربه‌ای که خودشان روایت می‌کنند</h2>
+    </div>
+    <div class="testi-slider">
+      <div class="testi-track reveal" id="testiTrack">
+        <div class="testi-slide">
+          <span class="testi-quote-mark">”</span>
+          <p class="quote">فرازبان مسیر یادگیری من رو کاملا شفاف کرد. با گزارش‌های هر ترم همیشه می‌دونستم کجا ایستادم.</p>
+          <div class="testi-person">
+            <img data-src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=150&auto=format&fit=crop" alt="مریم صادقی" loading="lazy">
+            <div><b>مریم صادقی</b><span>دوره بزرگسالان</span></div>
+          </div>
+        </div>
+        <div class="testi-slide">
+          <span class="testi-quote-mark">”</span>
+          <p class="quote">پسرم عاشق کلاس‌هاشه. فضای کلاس کوچک و صمیمی باعث شده واقعا با اشتیاق درس بخونه.</p>
+          <div class="testi-person">
+            <img data-src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&w=150&auto=format&fit=crop" alt="حسین قاسمی" loading="lazy">
+            <div><b>حسین قاسمی</b><span>ولی دانش‌آموز کودکان</span></div>
+          </div>
+        </div>
+        <div class="testi-slide">
+          <span class="testi-quote-mark">”</span>
+          <p class="quote">بعد از ۶ ماه تونستم نمره آیلتس مورد نیازم رو بگیرم. اساتید فرازبان واقعا حرفه‌ای هستن.</p>
+          <div class="testi-person">
+            <img data-src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="النا موسوی" loading="lazy">
+            <div><b>النا موسوی</b><span>آمادگی آیلتس</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ===================== SUCCESS / CERTIFICATES ===================== -->
+<section class="section on-navy" id="stories">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">دستاوردها</span>
+      <h2>مدارک و افتخارات زبان‌آموزان</h2>
+    </div>
+    <div class="cert-list reveal stagger">
+      <div class="cert-item" style="--i:0">
+        <div class="thumb"><img data-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=300&auto=format&fit=crop" alt="مدرک آیلتس" loading="lazy"></div>
+        <div class="txt"><b>مدرک بین‌المللی آیلتس</b><span>بیش از ۳۰۰ نفر موفق به کسب نمره بالای ۷ شده‌اند.</span></div>
+        <span class="badge">نمره ۸</span>
+      </div>
+      <div class="cert-item" style="--i:1">
+        <div class="thumb"><img data-src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?q=80&w=300&auto=format&fit=crop" alt="گواهی پایان دوره" loading="lazy"></div>
+        <div class="txt"><b>گواهی پایان دوره پیشرفته</b><span>مراسم فارغ‌التحصیلی هر ترم با گواهی معتبر بین‌المللی.</span></div>
+        <span class="badge">فارغ‌التحصیلی</span>
+      </div>
+      <div class="cert-item" style="--i:2">
+        <div class="thumb"><img data-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=300&auto=format&fit=crop" alt="آمار پیشرفت" loading="lazy"></div>
+        <div class="txt"><b>رضایت‌مندی بالای زبان‌آموزان</b><span>۹۷ درصد از دانش‌آموزان کیفیت آموزش را عالی ارزیابی کردند.</span></div>
+        <span class="badge">۹۷٪</span>
+      </div>
+      <div class="cert-item" style="--i:3">
+        <div class="thumb"><img data-src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=300&auto=format&fit=crop" alt="مدرک تافل" loading="lazy"></div>
+        <div class="txt"><b>مدرک بین‌المللی تافل</b><span>آمادگی کامل برای پذیرش تحصیلی و مهاجرتی.</span></div>
+        <span class="badge">نمره ۱۱۰</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSTAGRAM ===================== -->
+<section class="section" id="instagram">
+  <div class="container">
+    <div class="insta-head reveal">
+      <div class="eyebrow" style="margin-bottom:0;"><span>ما را دنبال کنید — farazaban.institute@</span></div>
+      <a href="#" class="btn btn-line btn-sm">مشاهده صفحه</a>
+    </div>
+    <div class="insta-grid reveal stagger">
+      <div class="insta-item" style="--i:0"><img data-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400&auto=format&fit=crop" alt="کلاس درس فرازبان" loading="lazy"></div>
+      <div class="insta-item" style="--i:1"><img data-src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop" alt="کتابخانه فرازبان" loading="lazy"></div>
+      <div class="insta-item" style="--i:2"><img data-src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=400&auto=format&fit=crop" alt="مراسم فارغ‌التحصیلی" loading="lazy"></div>
+      <div class="insta-item" style="--i:3"><img data-src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=400&auto=format&fit=crop" alt="کارگاه آموزشی فرازبان" loading="lazy"></div>
+      <div class="insta-item" style="--i:4"><img data-src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=400&auto=format&fit=crop" alt="کلاس خصوصی فرازبان" loading="lazy"></div>
+      <div class="insta-item" style="--i:5"><img data-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=400&auto=format&fit=crop" alt="فضای آکادمی فرازبان" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REGISTER ===================== -->
+<section class="section on-navy" id="register">
+  <div class="container">
+    <div class="register-panel reveal">
+      <div class="register-copy">
+        <span class="seal"><span>ف</span></span>
+        <span class="eyebrow" style="margin-top:14px;">ثبت‌نام ترم جدید</span>
+        <h2 style="margin-top:16px;">مسیر یادگیری خود را همین امروز آغاز کنید</h2>
+        <p class="sub">با تکمیل فرم زیر، کارشناسان فرازبان ظرف کمتر از ۲۴ ساعت با شما تماس می‌گیرند.</p>
+        <div class="mini-stats">
+          <div><b>۲۵٪</b><span>تخفیف ثبت‌نام زودهنگام</span></div>
+          <div><b>۳۰+</b><span>کلاس فعال</span></div>
+          <div><b>۲۴/۷</b><span>پشتیبانی آموزشی</span></div>
+        </div>
+      </div>
+      <div id="formCard">
+        <form id="registerForm" novalidate>
+          <div class="field">
+            <label for="fullname">نام و نام خانوادگی</label>
+            <input type="text" id="fullname" name="fullname" placeholder="مثال: علی رضایی" required>
+          </div>
+          <div class="field">
+            <label for="phone">شماره تماس</label>
+            <input type="tel" id="phone" name="phone" placeholder="۰۹xxxxxxxxx" required pattern="^0?9\d{9}$">
+          </div>
+          <div class="field">
+            <label for="course">انتخاب دوره</label>
+            <select id="course" name="course" required>
+              <option value="" disabled selected>یک دوره را انتخاب کنید</option>
+              <option value="kids">انگلیسی کودکان</option>
+              <option value="teens">انگلیسی نوجوانان</option>
+              <option value="adults">انگلیسی بزرگسالان</option>
+              <option value="ielts">آمادگی آیلتس / تافل</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">درخواست مشاوره رایگان</button>
+          <p class="form-note">اطلاعات شما نزد فرازبان کاملا محفوظ خواهد ماند.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <span class="seal"><span>✓</span></span>
+          <h3>درخواست شما ثبت شد</h3>
+          <p>کارشناسان فرازبان به‌زودی با شما تماس خواهند گرفت.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="seal"><span>ف</span></span>
+          <span class="brand-text"><b>فرازبان</b><span>FARAZABAN</span></span>
+        </a>
+        <p>آکادمی خصوصی آموزش زبان انگلیسی، همراه شما در مسیر یادگیری، از پایه تا تسلط کامل.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="اینستاگرام">IG</a>
+          <a href="#" aria-label="تلگرام">TG</a>
+          <a href="#" aria-label="واتساپ">WA</a>
+          <a href="#" aria-label="لینکدین">in</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>دسترسی سریع</h4>
+          <ul>
+            <li><a href="#courses">دوره‌ها</a></li>
+            <li><a href="#teachers">اساتید</a></li>
+            <li><a href="#dashboard">داشبورد پیشرفت</a></li>
+            <li><a href="#stories">دستاوردها</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>اطلاعات تماس</h4>
+          <ul>
+            <li>تهران، خیابان ولیعصر</li>
+            <li dir="ltr" style="text-align:right;">021-91000000</li>
+            <li dir="ltr" style="text-align:right;">info@farazaban.com</li>
+            <li>شنبه تا پنجشنبه، ۹ تا ۲۰</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ۱۴۰۴ فرازبان — تمامی حقوق محفوظ است.</p>
+      <a href="#home" class="to-top" aria-label="بازگشت به بالا">↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile cta -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <a href="#register" class="btn btn-line">مشاوره رایگان</a>
+  <a href="#register" class="btn btn-gold">ثبت‌نام دوره</a>
+</div>
+
+<div class="toast" id="toast">پیام شما با موفقیت ارسال شد ✓</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- header scroll state ---------- */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){
+    if(window.scrollY > 20){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  };
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- sticky mobile CTA hide near footer/register ---------- */
+  var ctaBar = document.getElementById('mobileCtaBar');
+  var registerSection = document.getElementById('register');
+  var footerEl = document.querySelector('.site-footer');
+  if(ctaBar && 'IntersectionObserver' in window){
+    var ctaObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ ctaBar.classList.add('hide'); }
+      });
+    }, {threshold:.05});
+    if(registerSection) ctaObserver.observe(registerSection);
+    if(footerEl) ctaObserver.observe(footerEl);
+  }
+
+  /* ---------- mobile fullscreen nav ---------- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('mobileNavClose');
+  var mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function openMenu(){
+    mobileNav.classList.add('open');
+    document.body.classList.add('menu-open');
+    hamburger.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    mobileNav.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger){
+    hamburger.addEventListener('click', function(){
+      mobileNav.classList.contains('open') ? closeMenu() : openMenu();
+    });
+  }
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  mobileLinks.forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+
+  /* ---------- smooth scroll ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          var offset = 84;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({top:top, behavior:'smooth'});
+        }
+      }
+    });
+  });
+
+  /* ---------- active nav link ---------- */
+  var navLinks = document.querySelectorAll('.nav-desktop a');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id], footer[id]'));
+  if('IntersectionObserver' in window){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = '#' + entry.target.id;
+          navLinks.forEach(function(link){ link.classList.toggle('active', link.getAttribute('href') === id); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -45% 0px'});
+    sections.forEach(function(s){ navObserver.observe(s); });
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal:not(.in-view), .reveal-img');
+  document.querySelectorAll('.stagger').forEach(function(group){
+    Array.prototype.forEach.call(group.children, function(child, i){
+      if(!child.style.getPropertyValue('--i')) child.style.setProperty('--i', i);
+    });
+  });
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.15});
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---------- dashboard progress triggers ---------- */
+  var dashCards = document.querySelectorAll('.dash-card');
+  if('IntersectionObserver' in window){
+    var dashObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, {threshold:.3});
+    dashCards.forEach(function(el){ dashObserver.observe(el); });
+  }
+
+  var ring = document.querySelector('.fg-ring');
+  if(ring && 'IntersectionObserver' in window){
+    var ringObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var progress = parseFloat(ring.getAttribute('data-progress')) || 0;
+          var circumference = 502;
+          ring.style.strokeDashoffset = circumference - (progress/100) * circumference;
+          ringObserver.disconnect();
+        }
+      });
+    }, {threshold:.4});
+    ringObserver.observe(ring.closest('.dash-card'));
+  }
+
+  /* ---------- counters ---------- */
+  function toPersianDigits(str){
+    var fa = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    return String(str).replace(/[0-9]/g, function(d){ return fa[d]; });
+  }
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var duration = 1500, startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = toPersianDigits(Math.floor(eased * target));
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = toPersianDigits(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var counterObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animateCounter(entry.target); counterObserver.unobserve(entry.target); }
+      });
+    }, {threshold:.5});
+    counters.forEach(function(c){ counterObserver.observe(c); });
+  }
+
+  /* ---------- lazy loading images ---------- */
+  var lazyImgs = document.querySelectorAll('img[data-src]');
+  if('IntersectionObserver' in window){
+    var imgObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var img = entry.target;
+          img.src = img.getAttribute('data-src');
+          img.addEventListener('load', function(){ img.classList.add('loaded'); });
+          img.removeAttribute('data-src');
+          obs.unobserve(img);
+        }
+      });
+    }, {rootMargin:'250px 0px'});
+    lazyImgs.forEach(function(img){ imgObserver.observe(img); });
+  } else {
+    lazyImgs.forEach(function(img){ img.src = img.getAttribute('data-src'); });
+  }
+
+  /* ---------- testimonial slider dots ---------- */
+  var testiTrack = document.getElementById('testiTrack');
+  var testiDots = document.getElementById('testiDots');
+  if(testiTrack && testiDots){
+    var slides = testiTrack.querySelectorAll('.testi-slide');
+    slides.forEach(function(_, i){
+      var d = document.createElement('span');
+      if(i === 0) d.classList.add('active');
+      d.addEventListener('click', function(){
+        var slideWidth = testiTrack.clientWidth;
+        testiTrack.scrollTo({left: i * slideWidth * (document.dir === 'rtl' ? -1 : 1), behavior:'smooth'});
+      });
+      testiDots.appendChild(d);
+    });
+    testiTrack.addEventListener('scroll', function(){
+      var slideWidth = testiTrack.clientWidth || 1;
+      var idx = Math.round(Math.abs(testiTrack.scrollLeft) / slideWidth);
+      Array.prototype.forEach.call(testiDots.children, function(dot, i){
+        dot.classList.toggle('active', i === idx);
+      });
+    }, {passive:true});
+  }
+
+  /* ---------- registration form ---------- */
+  var form = document.getElementById('registerForm');
+  var formSuccess = document.getElementById('formSuccess');
+  var toast = document.getElementById('toast');
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+  }
+
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var phone = document.getElementById('phone');
+      var phonePattern = /^0?9\d{9}$/;
+      if(!form.checkValidity() || !phonePattern.test(phone.value.trim())){
+        form.reportValidity();
+        showToast('لطفا اطلاعات فرم را به‌درستی تکمیل کنید');
+        return;
+      }
+      form.style.display = 'none';
+      formSuccess.classList.add('show');
+      showToast('درخواست شما با موفقیت ثبت شد');
+      setTimeout(function(){
+        form.reset();
+        form.style.display = '';
+        formSuccess.classList.remove('show');
+      }, 5000);
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
