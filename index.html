@@ -348,6 +348,38 @@ html[dir="rtl"] .dash-fill{right:0;left:auto;}
 .footer-col a:hover{color:var(--gold-light);}
 .footer-bottom{border-top:1px solid var(--line);margin-top:44px;padding-top:22px;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;}
 .footer-bottom p{font-size:11.5px;color:var(--ivory-mute);}
+.site-credit{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:30px;
+  padding:22px 24px;
+  border:1px solid rgba(201,162,75,.28);
+  background:linear-gradient(110deg,rgba(201,162,75,.12),rgba(245,238,226,.03));
+}
+.site-credit-copy{display:flex;align-items:center;gap:14px;}
+.site-credit-mark{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--gold-light);
+  font-family:'Markazi Text',serif;
+  font-size:19px;
+  flex-shrink:0;
+}
+.site-credit strong{display:block;color:var(--ivory);font-size:14px;margin-bottom:3px;}
+.site-credit-copy > div > span{display:block;color:var(--ivory-mute);font-size:12px;}
+.site-credit a{color:var(--gold-light);font-size:13px;font-weight:600;white-space:nowrap;transition:color .3s ease;}
+.site-credit a:hover{color:var(--ivory);}
+@media(max-width:520px){
+  .site-credit{align-items:flex-start;flex-direction:column;gap:16px;padding:18px;}
+  .site-credit a{padding-inline-start:54px;}
+}
 .to-top{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s;}
 .to-top:hover{background:var(--gold);color:var(--ink);}
 
@@ -882,6 +914,16 @@ img.loaded{animation:none;background:none;}
           </ul>
         </div>
       </div>
+    </div>
+    <div class="site-credit">
+      <div class="site-credit-copy">
+        <span class="site-credit-mark">K</span>
+        <div>
+          <strong>ساخته‌شده با افتخار توسط شرکت کانیما</strong>
+          <span>طراحی و توسعه‌ی تجربه‌ی دیجیتال کافه آل</span>
+        </div>
+      </div>
+      <a href="http://kanimaweb.ir" target="_blank" rel="noopener noreferrer">kanimaweb.ir ↗</a>
     </div>
     <div class="footer-bottom">
       <p>© ۱۴۰۴ فرازبان — تمامی حقوق محفوظ است.</p>
